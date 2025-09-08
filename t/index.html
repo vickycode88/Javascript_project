@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/t/media.css">
+
+    <title>Hello, world!</title>
+    <style>
+        #main {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            height: 100vh;
+
+            color: rgb(12, 7, 7);
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+
+        }
+
+        #typewriter {
+            border-right: 3px solid orange;
+            /* Cursor effect */
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            position: absolute;
+            top: 30%;
+            left: 90px;
+        }
+
+
+        #space1 {
+            width: 700px;
+            height: 300px;
+            display: inline-block;
+            position: absolute;
+            left: 90px;
+            top: 36%;
+
+
+
+
+        }
+
+        #im {
+            display: inline-block;
+            position: absolute;
+            right: 236px;
+            top: 120px;
+        }
+
+
+
+        .btn1 {
+            width: 140px;
+            font-weight: bolder;
+            position: absolute;
+            left: 90px;
+            bottom: 30%;
+            margin-bottom: 46px;
+            font-weight: bolder;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="font-weight: bolder;font-size: 30px;">Resume.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- <div class="row">
+    <div class="col-6"> -->
+    <div class="new1">
+        <div id="main">
+            <div id="typewriter"></div>
+            <div id="space1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                possimus ipsa tempora placeat saepe, unde quos.</div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <img src="https://img.freepik.com/free-vector/male-programmer-glasses-working-computer-his-office-flat-vector-illustration_1284-66913.jpg?semt=ais_hybrid&w=740&q=80"
+        width="500px" height="500px" id="im" alt="">
+    
+        <div id="Bootstrap">
+        <a href="/t/resume.html"><button type="button" class="btn btn-outline-primary btn1">Create Resume</button></a>
+    </div>
+
+
+    <!-- </div> -->
+    <!-- <div class="col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ullam officia possimus beatae atque dolores sunt assumenda reiciendis est et ducimus quasi quidem non quaerat iste suscipit omnis, illo doloribus?</div> -->
+
+    <!-- </div> -->
+
+
+    <script>
+        const texts = [
+            "Welcome To My Website!😊",
+            "Build Your Resume.😁",
+            "Resume is Awesome!😇",
+            "Make Instant Profile!😃"
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const speed = 100;      // typing speed
+        const eraseSpeed = 50;  // deleting speed
+        const delayBetween = 1500; // pause before erasing
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            const display = document.getElementById("typewriter");
+
+            if (!isDeleting) {
+                display.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, delayBetween);
+                    return;
+                }
+            } else {
+                display.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                }
+            }
+
+            setTimeout(typeWriter, isDeleting ? eraseSpeed : speed);
+        }
+
+        window.onload = typeWriter;
+    </script>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple Text Typewriter</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #222;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 2rem;
+    }
+
+    #typewriter {
+        border-right: 3px solid orange; /* Cursor effect */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+</style>
+</head>
+<body>
+<div class="row">
+    <div class="col-6">
+        <div id="typewriter"></div>
+    </div>
+        <div class="col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ullam officia possimus beatae atque dolores sunt assumenda reiciendis est et ducimus quasi quidem non quaerat iste suscipit omnis, illo doloribus?</div>
+
+</div>
+
+
+<script>
+    const texts = [
+        "Welcome to My Website!",
+        "We Build Cool Projects.",
+        "JavaScript is Awesome!",
+        "Enjoy Your Stay!"
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const speed = 100;      // typing speed
+    const eraseSpeed = 50;  // deleting speed
+    const delayBetween = 1500; // pause before erasing
+
+    function typeWriter() {
+        const currentText = texts[textIndex];
+        const display = document.getElementById("typewriter");
+
+        if (!isDeleting) {
+            display.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, delayBetween);
+                return;
+            }
+        } else {
+            display.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+        }
+
+        setTimeout(typeWriter, isDeleting ? eraseSpeed : speed);
+    }
+
+    window.onload = typeWriter;
+</script>
+
+</body>
+</html> -->

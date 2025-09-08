@@ -1,0 +1,42 @@
+@media screen and (max-width: 1500px) {
+
+    /* body {
+    background-color: red;
+  } */
+
+    #im {
+        height: 34%;
+        left: 40px;
+    }
+
+    #typewriter {
+
+        top: 20%;
+
+    }
+
+    #space1 {
+
+
+        /* top: 25%;
+        left: 11%; */
+        word-break: break-all;
+    }
+
+
+
+    .new1 {
+        position: absolute;
+        top: 35%;
+    }
+
+    .btn {
+        top: 97%;
+        /* bottom: 52px; */
+        height: 49px;
+
+
+    }
+
+
+}
